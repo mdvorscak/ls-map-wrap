@@ -1,0 +1,24 @@
+{
+  "name": "ls-map-wrap",
+  "description": "A wrapper around localstorage, so it can be used as a Map",
+  "version": "0.1.0",
+  "main": "lib/index.js",
+  "author": "mdvorscak",
+  "repository": "mdvorscak/ls-map-wrap",
+  "license": "MIT",
+  "scripts": {
+    "compile": "babel src --out-dir lib",
+    "coveralls": "cat ./coverage/lcov.info | coveralls",
+    "prepublish": "npm run compile",
+    "test": "babel-node ./node_modules/.bin/isparta cover _mocha"
+  },
+  "devDependencies": {
+    "babel-cli": "*",
+    "babel-preset-env": "^1.6.1",
+    "chai": "*",
+    "coveralls": "*",
+    "isparta": "*",
+    "mocha": "*",
+    "sinon": "*"
+  }
+}
