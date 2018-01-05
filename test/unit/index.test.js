@@ -1,5 +1,5 @@
 import { assert } from 'chai';
-import lsMapWrap from '../../src/index';
+//import lsMapWrap from '../../src/index';
 import theoretically from 'jasmine-theories';
 
 describe('ls-map-wrap', () => {
@@ -12,7 +12,7 @@ describe('ls-map-wrap', () => {
     it('should return undefined when the element is not in the map');
     theoretically.it('should return the proper element', [0, undefined, null, false, true, 'test', 
                                                           Date.now(), [1, 2, 3], Infinity, NaN, () => {},
-                                                        {test: 'x'}, Promise.resolve(5)], (element) = {
+                                                        {test: 'x'}, Promise.resolve(5)], (element) => {
       
     });
   });
