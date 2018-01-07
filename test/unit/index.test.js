@@ -23,7 +23,7 @@ describe('ls-map-wrap', () => {
     });
     let testCount = 0;
     theoretically.it('should return the proper element (%s)', [0, undefined, null, false, true, 'test', 
-                                                          Date.now(), [1, 2, 3], Infinity, () => {},
+                                                          Date.now(), [1, 2, 3], Infinity,
                                                         {test: 'x'}, Promise.resolve(5)], (element) => {
       testCount++;
       let key = `test-${testCount}`;
@@ -35,6 +35,15 @@ describe('ls-map-wrap', () => {
       let nanKey = 'nan-key';
       lsMapWrap.set(nanKey, NaN);
       expect(Number.isNaN(lsMapWrap.get(nanKey))).to.equal(true);
+    });
+    it('should work with a function', () => {
+      let fnKey = 'fn-key';
+      let fnRetVal = 'test value';
+      let fn = () => 'test value';
+      lsMapWrap.set(fnKey, fn);
+      let retrievedFn = lsMapWrap.get(fnKey);
+      expect(retrievedFn).to.be.a('function');
+      expect(retrievedFn()).to.equal(fnRetVal);
     });
   });
   describe('delete', ()=> {
