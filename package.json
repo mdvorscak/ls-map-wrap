@@ -7,7 +7,7 @@
   "repository": "mdvorscak/ls-map-wrap",
   "license": "MIT",
   "scripts": {
-    "compile": "babel src --out-dir lib",
+    "compile": "webpack",
     "coveralls": "cat ./coverage/lcov.info | coveralls",
     "prepublish": "npm run compile",
     "lint": "eslint src",
@@ -24,7 +24,13 @@
     "eslint": "^4.14.0",
     "isparta": "*",
     "jasmine-theories": "^0.1.3",
+    "karma": "^2.0.0",
+    "karma-chai": "^0.1.0",
+    "karma-chrome-launcher": "^2.2.0",
+    "karma-mocha": "^1.3.0",
+    "karma-webpack": "^2.0.9",
     "mocha": "*",
-    "sinon": "*"
+    "sinon": "*",
+    "webpack": "^3.10.0"
   }
 }
