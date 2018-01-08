@@ -11,11 +11,14 @@
     "coveralls": "cat ./coverage/lcov.info | coveralls",
     "prepublish": "npm run compile",
     "lint": "eslint src",
-    "test": "mocha --compilers js:babel-core/register",
+    "test": "karma start",
+    "test:debug": "karma start --browsers Chrome --single-run false",
     "test:cover": "babel-node ./node_modules/.bin/isparta cover _mocha"
   },
   "devDependencies": {
+    "babel-eslint": "^8.1.2",
     "chai": "*",
+    "chai-as-promised": "^7.1.1",
     "coveralls": "*",
     "eslint": "^4.14.0",
     "isparta": "*",
@@ -27,5 +30,9 @@
     "karma-webpack": "^2.0.9",
     "mocha": "*",
     "webpack": "^3.10.0"
+  },
+  "dependencies": {
+    "p-is-promise": "^1.1.0",
+    "store": "^2.0.12"
   }
 }

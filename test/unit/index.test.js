@@ -1,7 +1,10 @@
-import { expect }  from 'chai';
+import chai from 'chai';
+import chaiAsPromised from 'chai-as-promised';
 import lsMapWrap from '../../src/index';
 import theoretically from 'jasmine-theories';
 
+let expect = chai.expect;
+chai.use(chaiAsPromised);
 
 describe('ls-map-wrap', () => {
   describe('has', ()=> {
@@ -24,7 +27,7 @@ describe('ls-map-wrap', () => {
     let testCount = 0;
     theoretically.it('should return the proper element (%s)', [0, undefined, null, false, true, 'test', 
                                                           Date.now(), [1, 2, 3], Infinity,
-                                                        {test: 'x'}, Promise.resolve(5)], (element) => {
+                                                        {test: 'x'}], (element) => {
       testCount++;
       let key = `test-${testCount}`;
       lsMapWrap.set(key, element);
@@ -38,12 +41,18 @@ describe('ls-map-wrap', () => {
     });
     it('should work with a function', () => {
       let fnKey = 'fn-key';
-      let fnRetVal = 'test value';
       let fn = () => 'test value';
       lsMapWrap.set(fnKey, fn);
       let retrievedFn = lsMapWrap.get(fnKey);
       expect(retrievedFn).to.be.a('function');
-      expect(retrievedFn()).to.equal(fnRetVal);
+      expect(retrievedFn()).to.equal('test value');
+    });
+    it('should work with a Promise', () => {
+      let promiseKey = 'promise-key';
+      let p = Promise.resolve(5);
+      lsMapWrap.set(promiseKey, p);
+      let retrievedPromise = lsMapWrap.get(promiseKey);
+      expect(retrievedPromise).to.eventually.equal(5);
     });
   });
   describe('delete', ()=> {
