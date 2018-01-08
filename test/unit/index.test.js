@@ -51,8 +51,10 @@ describe('ls-map-wrap', () => {
       let promiseKey = 'promise-key';
       let p = Promise.resolve(5);
       lsMapWrap.set(promiseKey, p);
-      let retrievedPromise = lsMapWrap.get(promiseKey);
-      expect(retrievedPromise).to.eventually.equal(5);
+      setTimeout(() => {
+        let retrievedPromise = lsMapWrap.get(promiseKey);
+        expect(retrievedPromise).to.eventually.equal(5);
+      }, 0);
     });
   });
   describe('delete', ()=> {
