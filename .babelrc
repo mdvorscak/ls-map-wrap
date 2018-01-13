@@ -4,5 +4,6 @@
       "targets": {
         "browsers": ["last 1 versions"]
       }
-    }]]
+    }]],
+    "ignore": ["node_modules/**/*.js"]
 }
