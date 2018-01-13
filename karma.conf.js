@@ -1,14 +1,13 @@
 var webpackConfig = require('./webpack.config.js');
-webpackConfig.devtool = 'inline-source-map';
+
 
 module.exports = function(config) {
   config.set({
     frameworks: ['mocha', 'chai'],
     preprocessors: {
-      'src/index.js': ['webpack'],
       'test/**/*.js': ['webpack']
     },
-    files: ['src/index.js', 'test/**/*.js'],
+    files: ['test/**/*.js'],
     reporters: ['progress'],
     webpack: webpackConfig,
     webpackMiddleware: {
