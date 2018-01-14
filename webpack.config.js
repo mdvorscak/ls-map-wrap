@@ -18,12 +18,18 @@ var config = {
       {
         test: /\.js$/,
         exclude: /(node_modules|bower_components)/,
-        use: {
+        include: path.resolve('src/'),
+        use: [{
           loader: 'babel-loader',
           options: {
             presets: [require.resolve('babel-preset-env')]
           }
-        }
+        },
+        {
+          loader: 'istanbul-instrumenter-loader',
+          options: { esModules: true }
+        }],
+        enforce: 'post'
       }
     ]
   },

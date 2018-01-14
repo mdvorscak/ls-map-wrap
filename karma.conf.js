@@ -8,7 +8,11 @@ module.exports = function(config) {
       'test/**/*.js': ['webpack']
     },
     files: ['test/**/*.js'],
-    reporters: ['progress'],
+    reporters: ['progress', 'coverage-istanbul'],
+    coverageIstanbulReporter: {
+      reports: [ 'lcov', 'html' ],
+      fixWebpackSourcePaths: true
+    },
     webpack: webpackConfig,
     webpackMiddleware: {
       noInfo: true

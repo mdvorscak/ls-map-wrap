@@ -11,13 +11,13 @@
   "scripts": {
     "prebuild": "eslint src test",
     "build": "rollup -c --environment BUILD:production",
-    "watch": "rollup -c -w",
+    "build:cover": "rollup -c --environment BUILD:test",
     "prepublish": "npm run build",
     "coveralls": "cat ./coverage/lcov.info | coveralls",
     "lint": "eslint src",
     "test": "karma start",
     "test:debug": "karma start --browsers Chrome --single-run false",
-    "test:cover": "babel-node ./node_modules/.bin/isparta cover _mocha"
+    "test:cover": "npm run build:cover && npm run test"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",
@@ -32,10 +32,12 @@
     "eslint": "^4.14.0",
     "isparta": "*",
     "istanbul": "^0.4.5",
+    "istanbul-instrumenter-loader": "^3.0.0",
     "jasmine-theories": "^0.1.3",
     "karma": "^2.0.0",
     "karma-chai": "^0.1.0",
     "karma-chrome-launcher": "^2.2.0",
+    "karma-coverage-istanbul-reporter": "^1.3.3",
     "karma-mocha": "^1.3.0",
     "karma-webpack": "^2.0.9",
     "mocha": "*",
