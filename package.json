@@ -15,9 +15,9 @@
     "prepublish": "npm run build",
     "coveralls": "cat ./coverage/lcov.info | coveralls",
     "lint": "eslint src",
-    "test": "karma start",
+    "test": "npm run build:cover && karma start",
     "test:debug": "karma start --browsers Chrome --single-run false",
-    "test:cover": "npm run build:cover && npm run test"
+    "test:prod": "npm run build && karma start"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",
