@@ -16,6 +16,7 @@
     "coveralls": "cat ./coverage/lcov.info | coveralls",
     "lint": "eslint src",
     "test": "npm run build:cover && karma start",
+    "test:only": "karma start",
     "test:debug": "karma start --browsers Chrome --single-run false",
     "test:prod": "npm run build && karma start"
   },
