@@ -15,7 +15,7 @@ export default function promisePlugin() {
     get: function(super_fn, key) {
       let isPromise = super_fn(`${key}-isPromise`);
       if(isPromise){
-        return Promise.resolve(ls.getItem(key));
+        return Promise.resolve(JSON.parse(ls.getItem(key)));
       }
       return super_fn(key);
 		}

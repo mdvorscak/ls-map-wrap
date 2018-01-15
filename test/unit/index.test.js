@@ -47,13 +47,13 @@ describe('ls-map-wrap', () => {
       expect(retrievedFn).to.be.a('function');
       expect(retrievedFn()).to.equal('test value');
     });
-    it('should work with a Promise', () => {
+    it('should work with a Promise', (done) => {
       let promiseKey = 'promise-key';
       let p = Promise.resolve(5);
       lsMapWrap.set(promiseKey, p);
       setTimeout(() => {
         let retrievedPromise = lsMapWrap.get(promiseKey);
-        expect(retrievedPromise).to.eventually.equal(5);
+        expect(retrievedPromise).to.eventually.equal(5).notify(done);
       }, 0);
     });
   });
