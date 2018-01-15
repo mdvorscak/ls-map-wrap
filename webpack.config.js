@@ -32,8 +32,7 @@ var config = {
         enforce: 'post'
       }
     ]
-  },
-  plugins: [new UglifyJSPlugin()]
+  }
 };
 
 module.exports = config;
