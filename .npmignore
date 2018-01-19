@@ -4,14 +4,14 @@
 # .*.swp
 # ._*
 # .DS_Store
-# .git
+.git
 # .hg
 # .lock-wscript
 # .svn
 # .wafpickle-*
 # CVS
 # npm-debug.log
-# node_modules
+node_modules
 
 *.seed
 *.log
