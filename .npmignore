@@ -4,47 +4,27 @@
 # .*.swp
 # ._*
 # .DS_Store
-.git
+# .git
 # .hg
 # .lock-wscript
 # .svn
 # .wafpickle-*
 # CVS
 # npm-debug.log
-node_modules
+# node_modules
 
-*.seed
-*.log
-*.csv
-*.dat
-*.out
-*.pid
-*.gz
-*.orig
-
-work
-build
 src
 test
-pids
-logs
-results
 coverage
 lib-cov
 html-report
 xunit.xml
 
-.project
-.idea
-.settings
-.iml
-*.sublime-workspace
-*.sublime-project
-
-ehthumbs.db
-Icon?
-Thumbs.db
-.AppleDouble
-.LSOverride
-.Spotlight-V100
-.Trashes
+.travis.yml
+karma.conf.js
+*.config.js
+.eslintrc
+.gitignore
+.babelrc
+.editorconfig
+.vscode
