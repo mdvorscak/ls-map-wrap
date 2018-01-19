@@ -1,12 +1,12 @@
 import isPromise from 'p-is-promise';
 export default function promisePlugin() {
-  const ls = window.localStorage;
+  
   return {
     set: function(super_fn, key, value){
       if(isPromise(value)){
         value.then((awaitedValue) => {
-          ls.setItem(key, awaitedValue);
-          ls.setItem(`${key}-isPromise`, true);
+          super_fn(key, awaitedValue);
+          super_fn(`${key}-isPromise`, true);
         });
       } else {
         super_fn(key, value);
@@ -15,6 +15,7 @@ export default function promisePlugin() {
     get: function(super_fn, key) {
       let isPromise = super_fn(`${key}-isPromise`);
       if(isPromise){
+        const ls = window.localStorage;
         return Promise.resolve(JSON.parse(ls.getItem(key)));
       }
       return super_fn(key);

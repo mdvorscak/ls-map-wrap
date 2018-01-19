@@ -49,11 +49,11 @@ describe('ls-map-wrap', () => {
     });
     it('should work with a Promise', (done) => {
       let promiseKey = 'promise-key';
-      let p = Promise.resolve(5);
+      let p = Promise.resolve({x: 'internalObjectValue'});
       lsMapWrap.set(promiseKey, p);
       setTimeout(() => {
         let retrievedPromise = lsMapWrap.get(promiseKey);
-        expect(retrievedPromise).to.eventually.equal(5).notify(done);
+        expect(retrievedPromise).to.eventually.deep.equal({x: 'internalObjectValue'}).notify(done);
       }, 0);
     });
   });
