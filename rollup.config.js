@@ -5,7 +5,6 @@ import commonjs from 'rollup-plugin-commonjs';
 import resolve from 'rollup-plugin-node-resolve';
 
 let pkg = require('./package.json');
-let external = Object.keys(pkg.dependencies);
 
 let plugins = [
   resolve(),
