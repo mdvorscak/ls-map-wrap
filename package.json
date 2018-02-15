@@ -15,7 +15,7 @@
     "prepublish": "npm run build",
     "coveralls": "cat ./coverage/lcov.info | coveralls",
     "lint": "eslint src",
-    "test": "npm run build:cover && karma start",
+    "test": "xo && npm run build:cover && karma start",
     "test:only": "karma start",
     "test:debug": "karma start --browsers Chrome --single-run false",
     "test:prod": "npm run build && karma start"
@@ -49,10 +49,14 @@
     "rollup-plugin-node-resolve": "^3.0.2",
     "rollup-watch": "^4.0.0",
     "uglifyjs-webpack-plugin": "^1.1.6",
-    "webpack": "^3.10.0"
+    "webpack": "^3.10.0",
+    "xo": "^0.20.1"
   },
   "dependencies": {
     "p-is-promise": "^1.1.0",
     "store": "^2.0.12"
+  },
+  "xo": {
+    "space": true
   }
 }
