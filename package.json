@@ -1,7 +1,7 @@
 {
   "name": "ls-map-wrap",
   "description": "A wrapper around localstorage, so it can be used as a Map",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "main": "lib/index.js",
   "module": "lib/index.mjs",
   "jsnext:main": "lib/index.mjs",
