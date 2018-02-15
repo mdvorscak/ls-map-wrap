@@ -1,6 +1,6 @@
 import store from 'store';
 import promisePlugin from './plugins/promise';
-import nanInfinityPlugin from './plugins/nanInfinity';
+import nanInfinityPlugin from './plugins/nan-infinity';
 import functionPlugin from './plugins/function';
 import mapPlugin from './plugins/map';
 

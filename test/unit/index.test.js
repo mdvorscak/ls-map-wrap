@@ -1,7 +1,7 @@
 import chai from 'chai';
 import chaiAsPromised from 'chai-as-promised';
 import theoretically from 'jasmine-theories';
-import lsMapWrap from '../../src/index';
+import lsMapWrap from '../../src';
 
 const expect = chai.expect;
 chai.use(chaiAsPromised);
@@ -25,14 +25,14 @@ describe('ls-map-wrap', () => {
       expect(value).to.equal(undefined);
     });
     let testCount = 0;
-    theoretically.it('should return the proper element (%s)', [0, undefined, null, false, true, 'test',
-      Date.now(), [1, 2, 3], Infinity, {test: 'x'}], element => {
-        testCount++;
-        const key = `test-${testCount}`;
-        lsMapWrap.set(key, element);
-        const value = lsMapWrap.get(key);
-        expect(value).to.deep.equal(element);
-      });
+    const testCases = [0, undefined, null, false, true, 'test', Date.now(), [1, 2, 3], Infinity, {test: 'x'}];
+    theoretically.it('should return the proper element (%s)', testCases, element => {
+      testCount++;
+      const key = `test-${testCount}`;
+      lsMapWrap.set(key, element);
+      const value = lsMapWrap.get(key);
+      expect(value).to.deep.equal(element);
+    });
     it('should work with NaN', () => {
       const nanKey = 'nan-key';
       lsMapWrap.set(nanKey, NaN);

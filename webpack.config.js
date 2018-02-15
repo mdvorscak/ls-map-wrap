@@ -1,13 +1,12 @@
-var webpack = require('webpack');
-var path = require('path');
-var entry = 'index';
-var outputFile = entry + '.js';
-const UglifyJSPlugin = require('uglifyjs-webpack-plugin')
+const path = require('path');
 
-var config = {
-  entry: __dirname + '/src/index.js',
+const entry = 'index';
+const outputFile = entry + '.js';
+
+const config = {
+  entry: path.resolve('src/index.js'),
   output: {
-    path: __dirname + '/lib',
+    path: path.resolve('lib'),
     filename: outputFile,
     library: 'lsMap',
     libraryTarget: 'umd',
@@ -27,7 +26,7 @@ var config = {
         },
         {
           loader: 'istanbul-instrumenter-loader',
-          options: { esModules: true }
+          options: {esModules: true}
         }],
         enforce: 'post'
       }

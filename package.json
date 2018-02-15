@@ -58,6 +58,7 @@
   },
   "xo": {
     "space": true,
+    "envs": ["browser"],
     "overrides": [
 			{
 				"files": "test/**/*.js",

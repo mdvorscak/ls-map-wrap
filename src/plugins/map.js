@@ -1,12 +1,12 @@
 export default function mapPlugin() {
   return {
-    has: function(f, key){
+    has(f, key) {
       return this.get(key) !== undefined;
     },
-    delete: function(f, key){
+    delete(f, key) {
       return this.remove(key);
     },
-    clear: function(){
+    clear() {
       this.clearAll();
     }
   };

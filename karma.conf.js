@@ -1,7 +1,6 @@
-var webpackConfig = require('./webpack.config.js');
+const webpackConfig = require('./webpack.config.js');
 
-
-module.exports = function(config) {
+module.exports = function (config) {
   config.set({
     frameworks: ['mocha', 'chai'],
     preprocessors: {
@@ -10,19 +9,19 @@ module.exports = function(config) {
     files: ['test/**/*.js'],
     reporters: ['progress', 'coverage-istanbul'],
     coverageIstanbulReporter: {
-      reports: [ 'lcov', 'html' ],
+      reports: ['lcov', 'html'],
       fixWebpackSourcePaths: true
     },
     webpack: webpackConfig,
     webpackMiddleware: {
       noInfo: true
     },
-    port: 9876,  // karma web server port
+    port: 9876, // Karma web server port
     colors: true,
     logLevel: config.LOG_INFO,
     browsers: ['ChromeHeadless'],
     autoWatch: false,
     singleRun: true, // Karma captures browsers, runs the tests and exits
     concurrency: Infinity
-  })
-}
+  });
+};
