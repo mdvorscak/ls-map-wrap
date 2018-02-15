@@ -42,9 +42,7 @@
     "mocha": "*",
     "rollup": "^0.53.4",
     "rollup-plugin-babel": "^3.0.3",
-    "rollup-plugin-commonjs": "^8.2.6",
     "rollup-plugin-istanbul": "^1.1.0",
-    "rollup-plugin-node-resolve": "^3.0.2",
     "rollup-watch": "^4.0.0",
     "uglifyjs-webpack-plugin": "^1.1.6",
     "webpack": "^3.10.0",
@@ -56,12 +54,16 @@
   },
   "xo": {
     "space": true,
-    "envs": ["browser"],
+    "envs": [
+      "browser"
+    ],
     "overrides": [
-			{
-				"files": "test/**/*.js",
-				"envs": ["mocha"]
-			}
-		]
+      {
+        "files": "test/**/*.js",
+        "envs": [
+          "mocha"
+        ]
+      }
+    ]
   }
 }

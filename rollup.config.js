@@ -1,14 +1,10 @@
 import babel from 'rollup-plugin-babel';
 import babelrc from 'babelrc-rollup';
 import istanbul from 'rollup-plugin-istanbul';
-import commonjs from 'rollup-plugin-commonjs';
-import resolve from 'rollup-plugin-node-resolve';
 
 const pkg = require('./package.json');
 
 const plugins = [
-  resolve(),
-  commonjs(),
   babel(babelrc())
 ];
 
@@ -21,6 +17,7 @@ if (process.env.BUILD !== 'production') {
 export default {
   input: 'src/index.js',
   plugins,
+  external: Object.keys(pkg.dependencies),
   context: 'window',
   output: [
     {
