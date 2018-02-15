@@ -57,6 +57,12 @@
     "store": "^2.0.12"
   },
   "xo": {
-    "space": true
+    "space": true,
+    "overrides": [
+			{
+				"files": "test/**/*.js",
+				"envs": ["mocha"]
+			}
+		]
   }
 }
