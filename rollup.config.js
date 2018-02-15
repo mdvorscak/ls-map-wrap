@@ -26,13 +26,11 @@ export default {
     {
       file: pkg.main,
       format: 'umd',
-      name: 'lsMap',
-      sourcemap: true
+      name: 'lsMap'
     },
     {
       file: pkg.module,
-      format: 'es',
-      sourcemap: true
+      format: 'es'
     }
   ]
 };
