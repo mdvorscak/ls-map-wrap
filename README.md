@@ -1,6 +1,6 @@
 # ls-map-wrap
 
-[![Build Status][travis-image]][travis-url] [![Coverage][coveralls-image]][coveralls-url] [![dependencies][dependencies-image]][dependencies-url] [![dev dependencies][dev-dependencies-image]][dev-dependencies-url] [![License: MIT][MIT-image]][MIT-url]
+[![Build Status][travis-image]][travis-url] [![Coverage][coveralls-image]][coveralls-url] [![dependencies][dependencies-image]][dependencies-url] [![dev dependencies][dev-dependencies-image]][dev-dependencies-url] [![License: MIT][MIT-image]][MIT-url] [![XO code style][xo-image]][xo-url]
 
 A wrapper around localstorage, so it can be used as a Map
 
@@ -104,3 +104,6 @@ Removes all values from the map (localStorage)
 
 [MIT-url]: https://opensource.org/licenses/MIT
 [MIT-image]: https://img.shields.io/github/license/mashape/apistatus.svg?style=flat-square
+
+[xo-url]: https://github.com/xojs/xo
+[xo-image]: https://img.shields.io/badge/code_style-XO-5ed9c7.svg?style=flat-square
