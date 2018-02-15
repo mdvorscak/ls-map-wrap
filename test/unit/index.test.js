@@ -1,13 +1,13 @@
 import chai from 'chai';
 import chaiAsPromised from 'chai-as-promised';
-import lsMapWrap from '../../src/index';
 import theoretically from 'jasmine-theories';
+import lsMapWrap from '../../src/index';
 
-let expect = chai.expect;
+const expect = chai.expect;
 chai.use(chaiAsPromised);
 
 describe('ls-map-wrap', () => {
-  describe('has', ()=> {
+  describe('has', () => {
     it('should return false when nothing is passed', () => {
       expect(lsMapWrap.has()).to.equal(false);
     });
@@ -19,45 +19,44 @@ describe('ls-map-wrap', () => {
       expect(lsMapWrap.has('test')).to.equal(true);
     });
   });
-  describe('get/set', ()=> {
+  describe('get/set', () => {
     it('should return undefined when the element is not in the map', () => {
-      let value = lsMapWrap.get('non-existant-key');
+      const value = lsMapWrap.get('non-existant-key');
       expect(value).to.equal(undefined);
     });
     let testCount = 0;
-    theoretically.it('should return the proper element (%s)', [0, undefined, null, false, true, 'test', 
-                                                          Date.now(), [1, 2, 3], Infinity,
-                                                        {test: 'x'}], (element) => {
-      testCount++;
-      let key = `test-${testCount}`;
-      lsMapWrap.set(key, element);
-      let value = lsMapWrap.get(key);
-      expect(value).to.deep.equal(element);
-    });
+    theoretically.it('should return the proper element (%s)', [0, undefined, null, false, true, 'test',
+      Date.now(), [1, 2, 3], Infinity, {test: 'x'}], element => {
+        testCount++;
+        const key = `test-${testCount}`;
+        lsMapWrap.set(key, element);
+        const value = lsMapWrap.get(key);
+        expect(value).to.deep.equal(element);
+      });
     it('should work with NaN', () => {
-      let nanKey = 'nan-key';
+      const nanKey = 'nan-key';
       lsMapWrap.set(nanKey, NaN);
       expect(Number.isNaN(lsMapWrap.get(nanKey))).to.equal(true);
     });
     it('should work with a function', () => {
-      let fnKey = 'fn-key';
-      let fn = () => 'test value';
+      const fnKey = 'fn-key';
+      const fn = () => 'test value';
       lsMapWrap.set(fnKey, fn);
-      let retrievedFn = lsMapWrap.get(fnKey);
+      const retrievedFn = lsMapWrap.get(fnKey);
       expect(retrievedFn).to.be.a('function');
       expect(retrievedFn()).to.equal('test value');
     });
-    it('should work with a Promise', (done) => {
-      let promiseKey = 'promise-key';
-      let p = Promise.resolve({x: 'internalObjectValue'});
+    it('should work with a Promise', done => {
+      const promiseKey = 'promise-key';
+      const p = Promise.resolve({x: 'internalObjectValue'});
       lsMapWrap.set(promiseKey, p);
       setTimeout(() => {
-        let retrievedPromise = lsMapWrap.get(promiseKey);
+        const retrievedPromise = lsMapWrap.get(promiseKey);
         expect(retrievedPromise).to.eventually.deep.equal({x: 'internalObjectValue'}).notify(done);
       }, 0);
     });
   });
-  describe('delete', ()=> {
+  describe('delete', () => {
     it('should not throw an error when nothing is passed', () => {
       expect(() => lsMapWrap.delete()).not.to.throw();
     });
@@ -65,16 +64,16 @@ describe('ls-map-wrap', () => {
       expect(() => lsMapWrap.delete('non-existant-key')).not.to.throw();
     });
     it('should remove an existing item', () => {
-      let key = 'removingKey';
-      let element = 'test';
+      const key = 'removingKey';
+      const element = 'test';
       lsMapWrap.set(key, element);
       lsMapWrap.delete(key);
       expect(lsMapWrap.has(key)).to.equal(false);
     });
   });
-  describe('clear', ()=> {
+  describe('clear', () => {
     it('should remove all items', () => {
-      let keys = [1, 2, 3];
+      const keys = [1, 2, 3];
       keys.forEach(element => {
         lsMapWrap.set(element, element);
       });
