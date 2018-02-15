@@ -9,12 +9,10 @@
   "repository": "mdvorscak/ls-map-wrap",
   "license": "MIT",
   "scripts": {
-    "prebuild": "eslint src test",
     "build": "rollup -c --environment BUILD:production",
     "build:cover": "rollup -c --environment BUILD:test",
     "prepublish": "npm run build",
     "coveralls": "cat ./coverage/lcov.info | coveralls",
-    "lint": "eslint src",
     "test": "xo && npm run build:cover && karma start",
     "test:only": "karma start",
     "test:debug": "karma start --browsers Chrome --single-run false",
