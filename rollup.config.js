@@ -4,9 +4,9 @@ import istanbul from 'rollup-plugin-istanbul';
 import commonjs from 'rollup-plugin-commonjs';
 import resolve from 'rollup-plugin-node-resolve';
 
-let pkg = require('./package.json');
+const pkg = require('./package.json');
 
-let plugins = [
+const plugins = [
   resolve(),
   commonjs(),
   babel(babelrc())
@@ -20,7 +20,7 @@ if (process.env.BUILD !== 'production') {
 
 export default {
   input: 'src/index.js',
-  plugins: plugins,
+  plugins,
   context: 'window',
   output: [
     {
