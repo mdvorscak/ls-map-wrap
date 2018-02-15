@@ -1,10 +1,6 @@
 # ls-map-wrap
 
-[![Build Status][travis-image]][travis-url] 
-[![Coverage][coveralls-image]][coveralls-url] 
-[![dependencies][dependencies-image]][dependencies-url]
-[![dev dependencies][dev-dependencies-image]][dev-dependencies-url]
-[![License: MIT][MIT-image]][MIT-url]
+[![Build Status][travis-image]][travis-url] [![Coverage][coveralls-image]][coveralls-url] [![dependencies][dependencies-image]][dependencies-url] [![dev dependencies][dev-dependencies-image]][dev-dependencies-url] [![License: MIT][MIT-image]][MIT-url]
 
 A wrapper around localstorage, so it can be used as a Map
 
@@ -95,16 +91,16 @@ Type: `string`
 Removes all values from the map (localStorage)
 
 [travis-url]: https://travis-ci.org/mdvorscak/ls-map-wrap
-[travis-image]: https://img.shields.io/travis/mdvorscak/ls-map-wrap/master.svg?style=for-the-badge
+[travis-image]: https://img.shields.io/travis/mdvorscak/ls-map-wrap/master.svg?style=flat-square
 
 [coveralls-url]: https://coveralls.io/r/mdvorscak/ls-map-wrap?branch=master
-[coveralls-image]: https://img.shields.io/coveralls/github/mdvorscak/ls-map-wrap/master.svg?style=for-the-badge
+[coveralls-image]: https://img.shields.io/coveralls/github/mdvorscak/ls-map-wrap/master.svg?style=flat-square
 
 [dependencies-url]: https://david-dm.org/mdvorscak/ls-map-wrap
-[dependencies-image]: https://img.shields.io/david/mdvorscak/ls-map-wrap.svg?style=for-the-badge
+[dependencies-image]: https://img.shields.io/david/mdvorscak/ls-map-wrap.svg?style=flat-square
 
 [dev-dependencies-url]: https://david-dm.org/mdvorscak/ls-map-wrap/?type=dev
-[dev-dependencies-image]: https://img.shields.io/david/dev/mdvorscak/ls-map-wrap.svg?style=for-the-badge
+[dev-dependencies-image]: https://img.shields.io/david/dev/mdvorscak/ls-map-wrap.svg?style=flat-square
 
 [MIT-url]: https://opensource.org/licenses/MIT
-[MIT-image]: https://img.shields.io/github/license/mashape/apistatus.svg?style=for-the-badge
+[MIT-image]: https://img.shields.io/github/license/mashape/apistatus.svg?style=flat-square
