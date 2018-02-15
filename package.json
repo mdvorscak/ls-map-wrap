@@ -16,7 +16,9 @@
     "test": "xo && npm run build:cover && karma start",
     "test:only": "karma start",
     "test:debug": "karma start --browsers Chrome --single-run false",
-    "test:prod": "npm run build && karma start"
+    "test:prod": "npm run build && karma start",
+    "preversion": "npm run test:prod",
+    "postversion": "git push && git push --tags && npm publish"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",
